@@ -3,11 +3,13 @@
  */
 queue()
    .defer(d3.json, "/donorsUS/projects")
+   .defer(d3.json, "/static/us-states.json")
    .await(makeGraphs);
 
-function makeGraphs(error, projectsJson) {
+function makeGraphs(error, projectsJson, statesJson) {
 
    //Clean projectsJson data
+   var fundingStatusmap = dc.geoChoroplethChart("#funding-map");
    var donorsUSProjects = projectsJson;
    var dateFormat = d3.time.format("%Y-%m-%d %H:%M:%S");
    donorsUSProjects.forEach(function (d) {
@@ -40,6 +42,10 @@ function makeGraphs(error, projectsJson) {
    var fundingStatus = ndx.dimension(function (d) {
        return d["funding_status"];
    });
+   var teacherPrefix = ndx.dimension(function (d) {
+       return d["teacher_prefix"];
+   });
+
 
 
    //Calculate metrics
@@ -47,6 +53,7 @@ function makeGraphs(error, projectsJson) {
    var numProjectsByResourceType = resourceTypeDim.group();
    var numProjectsByPovertyLevel = povertyLevelDim.group();
    var numProjectsByFundingStatus = fundingStatus.group();
+   var numProjectsByTeacherPrefix = teacherPrefix.group();
    var totalDonationsByState = stateDim.group().reduceSum(function (d) {
        return d["total_donations"];
    });
@@ -71,7 +78,7 @@ function makeGraphs(error, projectsJson) {
    var numberProjectsND = dc.numberDisplay("#number-projects-nd");
    var totalDonationsND = dc.numberDisplay("#total-donations-nd");
    var fundingStatusChart = dc.pieChart("#funding-chart");
-
+   var teacherPrefixChart = dc.pieChart("#prefix-chart");
 
    selectField = dc.selectMenu('#menu-select')
        .dimension(stateDim)
@@ -119,6 +126,8 @@ function makeGraphs(error, projectsJson) {
        .group(numProjectsByPovertyLevel)
        .xAxis().ticks(4);
 
+
+
    fundingStatusChart
        .height(220)
        .radius(90)
@@ -126,6 +135,32 @@ function makeGraphs(error, projectsJson) {
        .transitionDuration(1500)
        .dimension(fundingStatus)
        .group(numProjectsByFundingStatus);
+
+    teacherPrefixChart
+       .height(220)
+       .radius(90)
+       .innerRadius(40)
+       .transitionDuration(1500)
+       .dimension(teacherPrefixChart)
+       .group(numProjectsByTeacherPrefix);
+
+    fundingStatusmap.width(1000)
+        .height(330)
+        .dimension(stateDim)
+        .group(totalDonationsByState)
+        .colors(["#E2F2FF", "#C4E4FF", "#9ED2FF", "#81C5FF", "#6BBAFF", "#51AEFF", "#36A2FF", "#1E96FF", "#0089FF", "#7C151D"])
+        .colorDomain([0, max_state])
+        .overlayGeoJson(statesJson["features"], "state", function (d) {
+            return d.properties.name;
+        })
+        .projection(d3.geo.albersUsa()
+            .scale(600)
+            .translate([340, 150]))
+        .title(function (p) {
+            return "State: " + p["key"]
+                + "\n"
+                + "Total Donations: " + Math.round(p["value"]) + " $";
+        });
 
 
    dc.renderAll();

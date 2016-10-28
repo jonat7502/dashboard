@@ -10,12 +10,12 @@ MONGODB_PORT = 27017
 DBS_NAME = 'donorsUSA'
 COLLECTION_NAME = 'projects'
 FIELDS = {'funding_status': True, 'school_state': True, 'resource_type': True, 'poverty_level': True,
-          'date_posted': True, 'total_donations': True, '_id': False}
+          'date_posted': True, 'total_donations': True, 'teacher_prefix': True, '_id': False}
 
 
 @app.route("/")
 def index():
-    return render_template("index.html")
+    return render_template("donations.html")
 
 
 @app.route("/donorsUS/projects")

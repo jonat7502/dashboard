@@ -1,39 +1,73 @@
-#number-projects-nd {
-   font-size: 60px;
+#test {
+   background-color: #1d2951;
+   fill: #ff0800;
+
+}
+.chart-wrapper {
+   background: #006a4e;
+   color: #ffff00;
 }
 
-#total-donations-nd {
-   font-size: 60px;
+.chart-title {
+   background: #006a4e;
+   color: #ffff00;
 }
 
-
+.chart-wrapper
+.chart-title {
+   background: #006a4e;
+   color: #ffff00;
+}
 
 
 .dc-chart g.row text {
-   fill: black;
+   color: #ffff00;
+   font-size: 60px;
+   background-color: #006a4e;
+}
+
+.dc-chart g.row text {
+   color: #ffff00;
+   font-size: 60px;
+   background-color: #006a4e;
+}
+select.dc-select-menu  {
+   background-color: #1d2951;
+}
+
+.intro_button {
+   background-color:#ff0800;
+   font
+}
+.dc-navbar-brand {
+   color: #ff0800;
+}
+
+
+.dc-chart g.row text {
+   color: #ffff00;
    font-size: 12px;
+   background-color: #006a4e;
 }
 
-#total-projects {
-   background: #33CC99;
+.dc-chart g.row text {
+   color: #ffff00;
    width: 200px;
    position: relative;
    height: 60px;
    font-size: 29px;
-   color: white;
    vertical-align: middle;
    text-align: center;
    padding-top: 12px;
    padding-bottom: 0px;
 }
 
-#net-donations {
-   background: #33CC99;
+.dc-chart g.row text {
+   color: #ffff00;
    width: 200px;
    position: relative;
    height: 60px;
    font-size: 29px;
-   color: white;
    vertical-align: middle;
    text-align: center;
    padding-top: 12px;
@@ -41,14 +75,13 @@
 }
 
 
-.dc-select-menu {
-   background: #33CC99;
+.dc-chart g.row text   {
+   color: #ffff00;
    width: 80%;
    border: none;
    position: relative;
    height: 31px;
    font-size: 15px;
-   color: white;
    vertical-align: middle;
    text-align: center;
    padding-top: 4px;
