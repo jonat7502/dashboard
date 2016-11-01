@@ -1,21 +1,21 @@
 #test {
-   background-color: #1d2951;
+   background-color: #00fa9a;
    fill: #ff0800;
 
 }
 .chart-wrapper {
-   background: #006a4e;
+   background: black;
    color: #ffff00;
 }
 
 .chart-title {
-   background: #006a4e;
+   background: #1a1110;
    color: #ffff00;
 }
 
 .chart-wrapper
 .chart-title {
-   background: #006a4e;
+   background: #1a1110;
    color: #ffff00;
 }
 
@@ -23,31 +23,31 @@
 .dc-chart g.row text {
    color: #ffff00;
    font-size: 60px;
-   background-color: #006a4e;
+   background-color: #1a1110;
 }
 
 .dc-chart g.row text {
    color: #ffff00;
    font-size: 60px;
-   background-color: #006a4e;
+   background-color: #1a1110;
 }
 select.dc-select-menu  {
-   background-color: #1d2951;
+   background-color: #1a1110;
 }
 
 .intro_button {
-   background-color:#ff0800;
-   font
+   background-color: #00fa9a;
+   font-size: 20px;
 }
-.dc-navbar-brand {
-   color: #ff0800;
+.navbar-header {
+   color: #1a1110;
 }
 
 
 .dc-chart g.row text {
    color: #ffff00;
    font-size: 12px;
-   background-color: #006a4e;
+   background-color: #1a1110;
 }
 
 .dc-chart g.row text {
@@ -60,6 +60,7 @@ select.dc-select-menu  {
    text-align: center;
    padding-top: 12px;
    padding-bottom: 0px;
+   background-color: #1a1110;
 }
 
 .dc-chart g.row text {
@@ -72,6 +73,7 @@ select.dc-select-menu  {
    text-align: center;
    padding-top: 12px;
    padding-bottom: 0px;
+   background-color: #1a1110;
 }
 
 
@@ -86,5 +88,11 @@ select.dc-select-menu  {
    text-align: center;
    padding-top: 4px;
    padding-bottom: 0px;
+   background-color: #1a1110;
+}
+
+.number-display {
+   background-color: #1a1110;
+   color: #ffff00;
 
 }

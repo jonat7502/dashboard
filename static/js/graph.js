@@ -165,3 +165,10 @@ function makeGraphs(error, projectsJson, statesJson) {
 
    dc.renderAll();
 }
+
+/*/$("#flip").click(function(){
+    $("#panel").slideUp();
+});
+ $("#flip").click(function(){
+    $("#panel").slideToggle();
+});/*/
